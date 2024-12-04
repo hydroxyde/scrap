@@ -50,11 +50,10 @@ def scrape_bioalps():
             actor_url = f"{actor_base_url}{actor_name}/"
             
             email = get_email_from_actor_page(actor_url)
-            if email:  # Only write if an email is found
-                print("je print: ", [actor_name, email])
+            if email:
+                print("wrote : ", [actor_name, email])
                 csvwriter.writerow([actor_name, email])
             
             time.sleep(random.randint(20,100)/100)  # Be polite to the server
 
-# Run the scraper
 scrape_bioalps()
